@@ -1,0 +1,81 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "LayerShotApp-arm64-apple-macosx-debug.exe": ["<LayerShotApp-arm64-apple-macosx-debug.exe>"]
+  "LayerShotApp-arm64-apple-macosx-debug.module": ["<LayerShotApp-arm64-apple-macosx-debug.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<LayerShotApp-arm64-apple-macosx-debug.exe>","<LayerShotApp-arm64-apple-macosx-debug.module>"]
+  "test": ["<LayerShotApp-arm64-apple-macosx-debug.exe>","<LayerShotApp-arm64-apple-macosx-debug.module>"]
+default: "main"
+nodes:
+  "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp":
+    is-mutated: true
+commands:
+  "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp-entitlement.plist":
+    tool: write-auxiliary-file
+    inputs: ["<entitlement-plist>","<com.apple.security.get-task-allow>"]
+    outputs: ["/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp-entitlement.plist"]
+    description: "Write auxiliary file /Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp-entitlement.plist"
+
+  "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/ContentView.swift","/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/LayerShotApp.swift","/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/AppState.swift"]
+    outputs: ["/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/sources"]
+    description: "Write auxiliary file /Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/sources"
+
+  "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/AppState.swift.o","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/ContentView.swift.o","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/LayerShotApp.swift.o"]
+    outputs: ["/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.product/Objects.LinkFileList"
+
+  "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Library/Developer/CommandLineTools/usr/bin/swiftc"]
+    outputs: ["/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+
+  "<LayerShotApp-arm64-apple-macosx-debug.exe>":
+    tool: phony
+    inputs: ["<LayerShotApp-arm64-apple-macosx-debug.exe-CodeSigning>"]
+    outputs: ["<LayerShotApp-arm64-apple-macosx-debug.exe>"]
+
+  "<LayerShotApp-arm64-apple-macosx-debug.module>":
+    tool: phony
+    inputs: ["/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/ContentView.swift.o","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/LayerShotApp.swift.o","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/AppState.swift.o","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/Modules/LayerShotApp.swiftmodule"]
+    outputs: ["<LayerShotApp-arm64-apple-macosx-debug.module>"]
+
+  "C.LayerShotApp-arm64-apple-macosx-debug.exe":
+    tool: shell
+    inputs: ["/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/AppState.swift.o","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/ContentView.swift.o","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/LayerShotApp.swift.o","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.product/Objects.LinkFileList"]
+    outputs: ["/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp"]
+    description: "Linking ./.build/arm64-apple-macosx/debug/LayerShotApp"
+    args: ["/Library/Developer/CommandLineTools/usr/bin/swiftc","-L","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug","-o","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp","-module-name","LayerShotApp","-Xlinker","-no_warn_duplicate_libraries","-emit-executable","-Xlinker","-alias","-Xlinker","_LayerShotApp_main","-Xlinker","_main","-Xlinker","-rpath","-Xlinker","@loader_path","@/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.product/Objects.LinkFileList","-Xlinker","-rpath","-Xlinker","/Library/Developer/CommandLineTools/usr/lib/swift-6.2/macosx","-target","arm64-apple-macosx14.0","-Xlinker","-add_ast_path","-Xlinker","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/Modules/LayerShotApp.swiftmodule","-I","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-L","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-plugin-path","/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing","-sdk","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-g"]
+
+  "C.LayerShotApp-arm64-apple-macosx-debug.exe-entitlements":
+    tool: shell
+    inputs: ["/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp-entitlement.plist"]
+    outputs: ["<LayerShotApp-arm64-apple-macosx-debug.exe-CodeSigning>"]
+    description: "Applying debug entitlements to ./.build/arm64-apple-macosx/debug/LayerShotApp"
+    args: ["codesign","--force","--sign","-","--entitlements","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp-entitlement.plist","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp"]
+
+  "C.LayerShotApp-arm64-apple-macosx-debug.module":
+    tool: shell
+    inputs: ["/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/ContentView.swift","/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/LayerShotApp.swift","/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/AppState.swift","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/sources"]
+    outputs: ["/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/ContentView.swift.o","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/LayerShotApp.swift.o","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/AppState.swift.o","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/Modules/LayerShotApp.swiftmodule"]
+    description: "Compiling Swift Module 'LayerShotApp' (3 sources)"
+    args: ["/Library/Developer/CommandLineTools/usr/bin/swiftc","-module-name","LayerShotApp","-emit-dependencies","-emit-module","-emit-module-path","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/Modules/LayerShotApp.swiftmodule","-output-file-map","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/output-file-map.json","-incremental","-c","@/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/sources","-I","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx14.0","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j18","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","LayerShotApp_main","-swift-version","5","-parse-as-library","-I","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-L","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-plugin-path","/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing","-sdk","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-g","-Xcc","-isysroot","-Xcc","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-Xcc","-fPIC","-Xcc","-g","-package-name","layershotapp"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/","/Users/davidciavatti/projects/layershot/LayerShotApp/Package.swift","/Users/davidciavatti/projects/layershot/LayerShotApp/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

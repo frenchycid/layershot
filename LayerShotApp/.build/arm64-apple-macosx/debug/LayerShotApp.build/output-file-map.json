@@ -1,0 +1,26 @@
+{
+  "": {
+    "swift-dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/primary.swiftdeps"
+  },
+  "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/ContentView.swift": {
+    "dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/ContentView.d",
+    "object": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/ContentView.swift.o",
+    "swiftmodule": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/ContentView~partial.swiftmodule",
+    "swift-dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/ContentView.swiftdeps",
+    "diagnostics": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/ContentView.dia"
+  },
+  "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/LayerShotApp.swift": {
+    "dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/LayerShotApp.d",
+    "object": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/LayerShotApp.swift.o",
+    "swiftmodule": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/LayerShotApp~partial.swiftmodule",
+    "swift-dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/LayerShotApp.swiftdeps",
+    "diagnostics": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/LayerShotApp.dia"
+  },
+  "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/AppState.swift": {
+    "dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/AppState.d",
+    "object": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/AppState.swift.o",
+    "swiftmodule": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/AppState~partial.swiftmodule",
+    "swift-dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/AppState.swiftdeps",
+    "diagnostics": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/AppState.dia"
+  }
+}

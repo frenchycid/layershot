@@ -1,0 +1,279 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.LayerShotApp-arm64-apple-macosx-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/sources",
+      "importPath" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/ContentView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/LayerShotApp.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/AppState.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "LayerShotApp",
+      "moduleOutputPath" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/Modules/LayerShotApp.swiftmodule",
+      "objects" : [
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/ContentView.swift.o",
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/LayerShotApp.swift.o",
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/AppState.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j18",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "LayerShotApp_main",
+        "-swift-version",
+        "5",
+        "-parse-as-library",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "layershotapp"
+      ],
+      "outputFileMapPath" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/ContentView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/LayerShotApp.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/AppState.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/Modules/LayerShotApp.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/ContentView.swift",
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/LayerShotApp.swift",
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/AppState.swift"
+      ],
+      "tempsPath" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "LayerShotApp" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "LayerShotApp",
+      "-package-name",
+      "layershotapp",
+      "-c",
+      "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/ContentView.swift",
+      "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/LayerShotApp.swift",
+      "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/AppState.swift",
+      "-I",
+      "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j18",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "LayerShotApp_main",
+      "-swift-version",
+      "5",
+      "-parse-as-library",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "layershotapp",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "LayerShotApp" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp-entitlement.plist" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<entitlement-plist>"
+        },
+        {
+          "kind" : "virtual",
+          "name" : "<com.apple.security.get-task-allow>"
+        }
+      ],
+      "outputFilePath" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp-entitlement.plist"
+    },
+    "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/ContentView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/LayerShotApp.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/AppState.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/sources"
+    },
+    "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/AppState.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/ContentView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/LayerShotApp.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.product/Objects.LinkFileList"
+    },
+    "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+    }
+  }
+}
