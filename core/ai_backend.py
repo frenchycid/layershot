@@ -56,11 +56,16 @@ class AIBackend:
         ]
         if system:
             cmd.extend(["--system-prompt", system])
-        return self._run_claude(cmd)
+        return self._run_claude(cmd, cwd=str(Path(__file__).parent.parent))
 
     def _claude_vision(self, image_paths: List[str], prompt: str,
                        system: Optional[str] = None) -> str:
-        paths_list = "\n".join(f"- {p}" for p in image_paths)
+        # Use absolute paths so Claude CLI works regardless of cwd
+        abs_paths = [str(Path(p).resolve()) for p in image_paths]
+        # Batch: max 20 images per call to stay within context limits
+        if len(abs_paths) > 20:
+            abs_paths = abs_paths[:20]
+        paths_list = "\n".join(f"- {p}" for p in abs_paths)
         full_prompt = (
             f"Read and analyze these image files:\n{paths_list}\n\n{prompt}"
         )
@@ -72,11 +77,12 @@ class AIBackend:
         ]
         if system:
             cmd.extend(["--system-prompt", system])
-        return self._run_claude(cmd)
+        # Run from project root so relative Read paths also work
+        return self._run_claude(cmd, cwd=str(Path(__file__).parent.parent))
 
-    def _run_claude(self, cmd: list) -> str:
+    def _run_claude(self, cmd: list, cwd: Optional[str] = None) -> str:
         result = subprocess.run(
-            cmd, capture_output=True, text=True, timeout=300
+            cmd, capture_output=True, text=True, timeout=300, cwd=cwd
         )
         if result.returncode != 0:
             raise RuntimeError(f"Claude CLI error: {result.stderr}")
