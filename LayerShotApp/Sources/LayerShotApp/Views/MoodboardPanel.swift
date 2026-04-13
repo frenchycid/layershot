@@ -157,7 +157,7 @@ struct ProductList: View {
                         Text(product.cliArgument).font(.caption2.monospaced()).foregroundStyle(.tertiary)
                     }
                 }
-                .onDelete { indices in indices.forEach { appState.removeProduct(at: $0) } }
+                .onDelete { indices in indices.sorted(by: >).forEach { appState.removeProduct(at: $0) } }
             }
         }
         .listStyle(.plain)

@@ -1,5 +1,14 @@
 import Foundation
 
+extension NSLock {
+    @discardableResult
+    func withLock<T>(_ body: () throws -> T) rethrows -> T {
+        lock()
+        defer { unlock() }
+        return try body()
+    }
+}
+
 public struct PipelineRunner {
     public let pythonPath: String
     public let projectPath: String
@@ -46,17 +55,18 @@ public struct PipelineRunner {
             let outPipe = Pipe()
             let errPipe = Pipe()
 
-            process.executableURL = URL(fileURLWithPath: command[0])
-            process.arguments = Array(command.dropFirst())
+            process.executableURL  = URL(fileURLWithPath: command[0])
+            process.arguments      = Array(command.dropFirst())
             process.standardOutput = outPipe
-            process.standardError = errPipe
+            process.standardError  = errPipe
 
+            let lock = NSLock()
             var fullOutput = ""
 
             outPipe.fileHandleForReading.readabilityHandler = { handle in
                 let data = handle.availableData
                 guard !data.isEmpty, let text = String(data: data, encoding: .utf8) else { return }
-                fullOutput += text
+                lock.withLock { fullOutput += text }
                 Task { await outputHandler(text) }
             }
 
@@ -66,17 +76,19 @@ public struct PipelineRunner {
                 Task { await outputHandler("[ERR] " + text) }
             }
 
-            do {
-                try process.run()
-                process.waitUntilExit()
+            process.terminationHandler = { proc in
                 outPipe.fileHandleForReading.readabilityHandler = nil
                 errPipe.fileHandleForReading.readabilityHandler = nil
-
-                if process.terminationStatus == 0 {
-                    continuation.resume(returning: fullOutput)
+                let captured = lock.withLock { fullOutput }
+                if proc.terminationStatus == 0 {
+                    continuation.resume(returning: captured)
                 } else {
-                    continuation.resume(throwing: PipelineError.processFailure(Int(process.terminationStatus)))
+                    continuation.resume(throwing: PipelineError.processFailure(Int(proc.terminationStatus)))
                 }
+            }
+
+            do {
+                try process.run()
             } catch {
                 continuation.resume(throwing: error)
             }
