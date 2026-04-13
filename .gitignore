@@ -1,0 +1,7 @@
+.venv/
+data/outputs/*.png
+data/moodboards/*.png
+data/moodboards/*.jpg
+__pycache__/
+*.pyc
+.pytest_cache/
