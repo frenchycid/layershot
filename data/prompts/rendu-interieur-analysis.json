@@ -1,0 +1,48 @@
+{
+  "lighting": {
+    "type": "Architectural ambient composite — concealed LED cove perimeter uplighting, recessed downlight arrays, tungsten-balanced accent spotlighting; secondary register of full-saturation theatrical color wash in immersive exhibition spaces",
+    "direction": "Predominantly overhead omnidirectional with perimeter cove fill producing near-shadowless mid-field; lateral volumetric wash in chromatic rooms; single-spot nadir key in close-up macro register",
+    "quality": "Soft, diffused with gradual highlight rolloff across polished stone and gilded surfaces in warm retail spaces; high-contrast with sharply crushed shadows and blown-out color fields in theatrical immersive rooms; clinical flat-fill in white/neutral retail environments"
+  },
+  "color_palette": {
+    "dominant": [
+      "champagne ivory",
+      "warm travertine sand",
+      "caramel amber",
+      "gilded ochre",
+      "dusty terracotta rose"
+    ],
+    "accents": [
+      "crimson scarlet",
+      "electric cyan-teal",
+      "deep cobalt indigo",
+      "mauve lavender",
+      "neon acid green",
+      "near-black void"
+    ],
+    "temperature": "warm"
+  },
+  "grain": {
+    "type": "digital",
+    "intensity": "low",
+    "film_stock": "none — high-resolution digital capture, ISO 100–400 equivalent, zero visible luminance noise across all 49 frames"
+  },
+  "lens": {
+    "focal_length": "16–24mm rectilinear wide-angle (dominant architectural register); 90–105mm macro-telephoto (close-up detail register)",
+    "aperture": "f/5.6–f/11 architectural interiors; f/2.8–f/4 close-up detail",
+    "depth_of_field": "deep"
+  },
+  "atmosphere": [
+    "luminous incandescent bloom emanating from concealed cove sources, halating across warm stone and lacquered surfaces",
+    "lifted blacks with fully preserved shadow detail in warm retail spaces — no crushed shadow tones",
+    "gentle specular highlight rolloff on travertine, onyx, and brushed gold metalwork",
+    "micro-reflections and lens flare suppression on glass showcases and polished resin floors",
+    "monochromatic saturated color cast flooding entire frame volume in theatrical immersive rooms — crimson, cobalt, and cyan channels independently dominant",
+    "mirror-floor infinity plane reflection collapsing spatial depth in dark exhibition volumes",
+    "atmospheric layering through glazed partitions, archways, and enfilades creating receding tonal planes",
+    "clinical near-zero shadow flatness with cool blue-white color cast in white retail environments",
+    "shallow bokeh with creamy out-of-focus highlight discs in macro close-up register",
+    "dusk blue-hour ambient color contamination and motion-blur streaking in exterior architectural shots"
+  ],
+  "style_summary": "The corpus operates across three distinct photographic registers unified by a shared commitment to high-resolution, grain-free digital capture and precision tonal management. The dominant register — approximately 60% of the collection — is warm-palette luxury architectural photography shot on rectilinear 16–24mm wide-angles at f/8–f/11 with zero depth-of-field falloff: concealed LED cove strips and recessed downlights produce a soft omnidirectional fill across champagne ivory, travertine, and gilded amber surfaces, with lifted blacks, preserved shadow texture, and a gentle highlight rolloff that flatters specular materials. A second theatrical register — roughly 30% — breaks aggressively into saturated monochromatic color-wash territory: crushed shadow fields in near-black, full-saturation crimson or cobalt volumetric illumination, and mirror-floor reflections that dissolve architectural geometry into infinite chromatic abstraction. A minor third register applies 90–105mm macro-telephoto compression with wide aperture and shallow depth of field to isolate material texture in extreme close-up, isolating subjects against tonally graduated, near-dark backgrounds. Post-processing across all registers favors clean tonal transitions, restrained midtone saturation in warm sequences, and hyper-controlled highlight recovery — a signature of commercial architectural and editorial photography for luxury maisons."
+}

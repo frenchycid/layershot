@@ -48,7 +48,7 @@ def test_claude_complete():
         cmd = mock_run.call_args[0][0]
         assert "claude" in cmd
         assert "-p" in cmd
-        assert "--bare" in cmd
+        assert "--output-format" in cmd
 
 
 def test_ollama_complete():

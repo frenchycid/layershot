@@ -51,7 +51,6 @@ class AIBackend:
     def _claude_complete(self, prompt: str, system: Optional[str] = None) -> str:
         cmd = [
             "claude", "-p", prompt,
-            "--bare",
             "--output-format", "json",
             "--model", self.config.claude_model,
         ]
@@ -67,7 +66,6 @@ class AIBackend:
         )
         cmd = [
             "claude", "-p", full_prompt,
-            "--bare",
             "--output-format", "json",
             "--model", self.config.claude_model,
             "--allowedTools", "Read",
