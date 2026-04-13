@@ -52,6 +52,22 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Services/PipelineRunner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Views/GalleryPanel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Views/MoodboardPanel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Views/PipelinePanel.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
         },
         {
@@ -69,7 +85,11 @@
         "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/MasterPrompt.swift.o",
         "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelineStep.swift.o",
         "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/Product.swift.o",
-        "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/StyleAnalysis.swift.o"
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/StyleAnalysis.swift.o",
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelineRunner.swift.o",
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/GalleryPanel.swift.o",
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/MoodboardPanel.swift.o",
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelinePanel.swift.o"
       ],
       "otherArguments" : [
         "-target",
@@ -146,6 +166,22 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelineRunner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/GalleryPanel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/MoodboardPanel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelinePanel.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/Modules/LayerShotApp.swiftmodule"
         }
       ],
@@ -157,7 +193,11 @@
         "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/MasterPrompt.swift",
         "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/PipelineStep.swift",
         "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/Product.swift",
-        "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/StyleAnalysis.swift"
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/StyleAnalysis.swift",
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Services/PipelineRunner.swift",
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Views/GalleryPanel.swift",
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Views/MoodboardPanel.swift",
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Views/PipelinePanel.swift"
       ],
       "tempsPath" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build",
       "wholeModuleOptimization" : false
@@ -263,6 +303,14 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Tests/LayerShotAppTests/PipelineRunnerTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Tests/LayerShotAppTests/main.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
         },
         {
@@ -278,7 +326,9 @@
       "moduleName" : "LayerShotAppTests",
       "moduleOutputPath" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/Modules/LayerShotAppTests.swiftmodule",
       "objects" : [
-        "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotAppTests.build/AppStateTests.swift.o"
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotAppTests.build/AppStateTests.swift.o",
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotAppTests.build/PipelineRunnerTests.swift.o",
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotAppTests.build/main.swift.o"
       ],
       "otherArguments" : [
         "-target",
@@ -331,12 +381,22 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotAppTests.build/PipelineRunnerTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotAppTests.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/Modules/LayerShotAppTests.swiftmodule"
         }
       ],
       "prepareForIndexing" : false,
       "sources" : [
-        "/Users/davidciavatti/projects/layershot/LayerShotApp/Tests/LayerShotAppTests/AppStateTests.swift"
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/Tests/LayerShotAppTests/AppStateTests.swift",
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/Tests/LayerShotAppTests/PipelineRunnerTests.swift",
+        "/Users/davidciavatti/projects/layershot/LayerShotApp/Tests/LayerShotAppTests/main.swift"
       ],
       "tempsPath" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotAppTests.build",
       "wholeModuleOptimization" : false
@@ -360,6 +420,10 @@
       "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/PipelineStep.swift",
       "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/Product.swift",
       "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/StyleAnalysis.swift",
+      "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Services/PipelineRunner.swift",
+      "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Views/GalleryPanel.swift",
+      "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Views/MoodboardPanel.swift",
+      "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Views/PipelinePanel.swift",
       "-I",
       "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/Modules",
       "-target",
@@ -469,6 +533,8 @@
       "layershotapp",
       "-c",
       "/Users/davidciavatti/projects/layershot/LayerShotApp/Tests/LayerShotAppTests/AppStateTests.swift",
+      "/Users/davidciavatti/projects/layershot/LayerShotApp/Tests/LayerShotAppTests/PipelineRunnerTests.swift",
+      "/Users/davidciavatti/projects/layershot/LayerShotApp/Tests/LayerShotAppTests/main.swift",
       "-I",
       "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/Modules",
       "-target",
@@ -573,6 +639,22 @@
         {
           "kind" : "file",
           "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/StyleAnalysis.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Services/PipelineRunner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Views/GalleryPanel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Views/MoodboardPanel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Views/PipelinePanel.swift"
         }
       ],
       "outputFilePath" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/sources"
@@ -622,11 +704,27 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/GalleryPanel.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/GeneratedImage.swift.o"
         },
         {
           "kind" : "file",
           "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/MasterPrompt.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/MoodboardPanel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelinePanel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelineRunner.swift.o"
         },
         {
           "kind" : "file",
@@ -671,6 +769,14 @@
         {
           "kind" : "file",
           "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Tests/LayerShotAppTests/AppStateTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Tests/LayerShotAppTests/PipelineRunnerTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/Tests/LayerShotAppTests/main.swift"
         }
       ],
       "outputFilePath" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotAppTests.build/sources"
@@ -692,11 +798,27 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/GalleryPanel.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/GeneratedImage.swift.o"
         },
         {
           "kind" : "file",
           "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/MasterPrompt.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/MoodboardPanel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelinePanel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelineRunner.swift.o"
         },
         {
           "kind" : "file",
@@ -713,6 +835,14 @@
         {
           "kind" : "file",
           "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotAppTests.build/AppStateTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotAppTests.build/PipelineRunnerTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotAppTests.build/main.swift.o"
         }
       ],
       "outputFilePath" : "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotAppTests.product/Objects.LinkFileList"

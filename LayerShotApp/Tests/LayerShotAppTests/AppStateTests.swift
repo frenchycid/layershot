@@ -67,6 +67,3 @@ final class AppStateTests {
         assert(img == nil, "test_generated_image_rejects_bad_filename")
     }
 }
-
-// Entry point for tests
-AppStateTests().runTests()

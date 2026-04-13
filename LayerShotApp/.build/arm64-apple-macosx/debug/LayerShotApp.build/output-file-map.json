@@ -50,5 +50,33 @@
     "swiftmodule": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/StyleAnalysis~partial.swiftmodule",
     "swift-dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/StyleAnalysis.swiftdeps",
     "diagnostics": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/StyleAnalysis.dia"
+  },
+  "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Services/PipelineRunner.swift": {
+    "dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelineRunner.d",
+    "object": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelineRunner.swift.o",
+    "swiftmodule": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelineRunner~partial.swiftmodule",
+    "swift-dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelineRunner.swiftdeps",
+    "diagnostics": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelineRunner.dia"
+  },
+  "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Views/GalleryPanel.swift": {
+    "dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/GalleryPanel.d",
+    "object": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/GalleryPanel.swift.o",
+    "swiftmodule": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/GalleryPanel~partial.swiftmodule",
+    "swift-dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/GalleryPanel.swiftdeps",
+    "diagnostics": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/GalleryPanel.dia"
+  },
+  "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Views/MoodboardPanel.swift": {
+    "dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/MoodboardPanel.d",
+    "object": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/MoodboardPanel.swift.o",
+    "swiftmodule": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/MoodboardPanel~partial.swiftmodule",
+    "swift-dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/MoodboardPanel.swiftdeps",
+    "diagnostics": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/MoodboardPanel.dia"
+  },
+  "/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Views/PipelinePanel.swift": {
+    "dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelinePanel.d",
+    "object": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelinePanel.swift.o",
+    "swiftmodule": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelinePanel~partial.swiftmodule",
+    "swift-dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelinePanel.swiftdeps",
+    "diagnostics": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/PipelinePanel.dia"
   }
 }

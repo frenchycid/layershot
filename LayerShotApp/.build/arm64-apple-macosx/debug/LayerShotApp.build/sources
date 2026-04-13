@@ -5,3 +5,7 @@
 /Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/PipelineStep.swift
 /Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/Product.swift
 /Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/StyleAnalysis.swift
+/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Services/PipelineRunner.swift
+/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Views/GalleryPanel.swift
+/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Views/MoodboardPanel.swift
+/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Views/PipelinePanel.swift
