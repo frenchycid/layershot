@@ -1,9 +1,41 @@
-// LayerShotApp/Sources/LayerShotApp/Models/AppState.swift
 import SwiftUI
 import Observation
 
 @Observable
-class AppState {
-    var pythonPath: String = "/usr/bin/python3"
-    var projectPath: String = NSHomeDirectory() + "/projects/layershot"
+public class AppState {
+    public var moodboardPath: URL?
+    public var moodboardImages: [URL] = []
+    public var products: [Product] = []
+    public var currentStep: PipelineStep = .idle
+    public var pipelineLog: String = ""
+    public var styleAnalysis: StyleAnalysis?
+    public var masterPrompt: MasterPrompt?
+    public var generatedImages: [GeneratedImage] = []
+    public var isRunning: Bool = false
+    public var outputPath: URL
+    public var pythonPath: String = "/usr/bin/python3"
+    public var projectPath: String
+
+    public init() {
+        let home    = FileManager.default.homeDirectoryForCurrentUser
+        projectPath = home.appendingPathComponent("projects/layershot").path
+        outputPath  = home.appendingPathComponent("projects/layershot/data/outputs")
+    }
+
+    public func addProduct(name: String, color: String) {
+        products.append(Product(name: name, color: color))
+    }
+
+    public func removeProduct(at index: Int) {
+        guard index < products.count else { return }
+        products.remove(at: index)
+    }
+
+    public func appendLog(_ text: String) {
+        pipelineLog += text
+    }
+
+    public func clearLog() {
+        pipelineLog = ""
+    }
 }

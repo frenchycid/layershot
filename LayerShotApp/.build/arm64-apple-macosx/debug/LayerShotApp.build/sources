@@ -1,3 +1,7 @@
 /Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/ContentView.swift
-/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/LayerShotApp.swift
 /Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/AppState.swift
+/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/GeneratedImage.swift
+/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/MasterPrompt.swift
+/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/PipelineStep.swift
+/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/Product.swift
+/Users/davidciavatti/projects/layershot/LayerShotApp/Sources/LayerShotApp/Models/StyleAnalysis.swift

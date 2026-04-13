@@ -1,0 +1,3 @@
+module LayerShotApp {
+    header "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotApp.build/include/LayerShotApp-Swift.h"
+}

@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotAppTests.build/primary.swiftdeps"
+  },
+  "/Users/davidciavatti/projects/layershot/LayerShotApp/Tests/LayerShotAppTests/AppStateTests.swift": {
+    "dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotAppTests.build/AppStateTests.d",
+    "object": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotAppTests.build/AppStateTests.swift.o",
+    "swiftmodule": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotAppTests.build/AppStateTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotAppTests.build/AppStateTests.swiftdeps",
+    "diagnostics": "/Users/davidciavatti/projects/layershot/LayerShotApp/.build/arm64-apple-macosx/debug/LayerShotAppTests.build/AppStateTests.dia"
+  }
+}

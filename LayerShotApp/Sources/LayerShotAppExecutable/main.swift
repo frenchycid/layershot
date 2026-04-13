@@ -1,5 +1,6 @@
-// LayerShotApp/Sources/LayerShotApp/LayerShotApp.swift
 import SwiftUI
+import LayerShotApp
+import Observation
 
 @main
 struct LayerShotApp: App {

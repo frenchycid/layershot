@@ -5,15 +5,19 @@ let package = Package(
     name: "LayerShotApp",
     platforms: [.macOS(.v14)],
     targets: [
-        .executableTarget(
+        .target(
             name: "LayerShotApp",
-            path: "Sources/LayerShotApp",
-            swiftSettings: [.unsafeFlags(["-parse-as-library"])]
+            path: "Sources/LayerShotApp"
         ),
-        .testTarget(
+        .executableTarget(
+            name: "LayerShotAppExecutable",
+            dependencies: ["LayerShotApp"],
+            path: "Sources/LayerShotAppExecutable"
+        ),
+        .executableTarget(
             name: "LayerShotAppTests",
             dependencies: ["LayerShotApp"],
-            path: "Tests"
+            path: "Tests/LayerShotAppTests"
         )
     ]
 )
