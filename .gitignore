@@ -5,3 +5,6 @@ data/moodboards/*.jpg
 __pycache__/
 *.pyc
 .pytest_cache/
+LayerShotApp/.build/
+LayerShotApp/*.xcodeproj/
+LayerShotApp/*.xcworkspace/
