@@ -13,6 +13,9 @@ from agents.style_analyst import StyleAnalyst
 from agents.prompt_engineer import PromptEngineer
 from agents.pipeline import PipelineOrchestrator
 from agents.quality_review import QualityReview
+from agents.prompt_variant_engine import PromptVariantEngine
+from agents.brand_preservation_agent import BrandPreservationAgent
+from agents.render_mode_processor import RenderModeProcessor
 
 log = logging.getLogger("creative_director")
 

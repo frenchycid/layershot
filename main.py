@@ -70,10 +70,11 @@ def cmd_generate(args, config):
 
     master = json.loads(Path(args.prompt).read_text())
     products = parse_products(args.products)
+    render_mode = getattr(args, 'render_mode', 'white_background')
     output_dir = Path(args.output) if args.output else config.outputs_dir
 
     orch = PipelineOrchestrator(flux_client=flux, config=config)
-    print(f"Generating images for {len(products)} products...")
+    print(f"Generating images for {len(products)} products (render_mode: {render_mode})...")
     report = orch.run(master, products, output_dir=output_dir)
 
     print(f"\nDone: {report['completed']}/{report['total']} images")
@@ -162,6 +163,12 @@ def main():
     p_gen.add_argument("--prompt", "-p", required=True, help="Master prompt JSON")
     p_gen.add_argument("--products", nargs="+", required=True, help="Products as name:color")
     p_gen.add_argument("--output", "-o", help="Output directory")
+    p_gen.add_argument(
+        "--render-mode",
+        choices=["isolated", "white_background", "enhanced"],
+        default="white_background",
+        help="Render mode: isolated (transparent), white_background (studio), enhanced (premium)"
+    )
 
     # review
     p_review = sub.add_parser("review", help="Review generated images")
