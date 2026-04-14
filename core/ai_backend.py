@@ -5,6 +5,7 @@ import shutil
 import subprocess
 import base64
 import logging
+import tempfile
 from pathlib import Path
 from typing import List, Optional
 
@@ -46,6 +47,13 @@ class AIBackend:
             return self._claude_vision(image_paths, prompt, system)
         return self._ollama_vision(image_paths, prompt, system)
 
+    def analyze_image(self, prompt: str, image_b64: str,
+                      system: Optional[str] = None) -> str:
+        """Analyze a single image provided as base64 string."""
+        if self.backend_name == "claude":
+            return self._claude_vision_b64(prompt, image_b64, system)
+        return self._ollama_vision_b64(prompt, image_b64, system)
+
     # ── Claude Code CLI ──
 
     def _claude_complete(self, prompt: str, system: Optional[str] = None) -> str:
@@ -79,6 +87,30 @@ class AIBackend:
             cmd.extend(["--system-prompt", system])
         # Run from project root so relative Read paths also work
         return self._run_claude(cmd, cwd=str(Path(__file__).parent.parent))
+
+    def _claude_vision_b64(self, prompt: str, image_b64: str,
+                           system: Optional[str] = None) -> str:
+        """Analyze a single base64-encoded image via Claude."""
+        # For Claude CLI, we write base64 to a temp file and read it
+        import tempfile
+        with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as f:
+            temp_path = f.name
+            f.write(base64.b64decode(image_b64))
+
+        try:
+            full_prompt = f"Analyze this image:\n{prompt}"
+            cmd = [
+                "claude", "-p", full_prompt,
+                "--output-format", "json",
+                "--model", self.config.claude_model,
+                "--allowedTools", "Read",
+                temp_path,
+            ]
+            if system:
+                cmd.extend(["--system-prompt", system])
+            return self._run_claude(cmd, cwd=str(Path(__file__).parent.parent))
+        finally:
+            Path(temp_path).unlink()
 
     def _run_claude(self, cmd: list, cwd: Optional[str] = None) -> str:
         result = subprocess.run(
@@ -119,6 +151,25 @@ class AIBackend:
             "model": self.config.ollama_vision_model,
             "prompt": prompt,
             "images": images_b64,
+            "stream": False,
+        }
+        if system:
+            payload["system"] = system
+        resp = httpx.post(
+            f"{self.config.ollama_url}/api/generate",
+            json=payload,
+            timeout=300.0,
+        )
+        resp.raise_for_status()
+        return resp.json()["response"]
+
+    def _ollama_vision_b64(self, prompt: str, image_b64: str,
+                           system: Optional[str] = None) -> str:
+        """Analyze a single base64-encoded image via Ollama."""
+        payload = {
+            "model": self.config.ollama_vision_model,
+            "prompt": prompt,
+            "images": [image_b64],
             "stream": False,
         }
         if system:
