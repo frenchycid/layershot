@@ -121,12 +121,14 @@ def cmd_run(args, config):
     products = parse_products(args.products)
     output_dir = Path(args.output) if args.output else config.outputs_dir
 
-    print(f"Full pipeline: {args.moodboard} -> {len(products)} products")
+    render_mode = getattr(args, 'render_mode', 'white_background')
+    print(f"Full pipeline: {args.moodboard} -> {len(products)} products ({render_mode} mode)")
     report = director.run(
         moodboard_dir=Path(args.moodboard),
         products=products,
         output_dir=output_dir,
         session_name=args.session,
+        render_mode=render_mode,
     )
 
     print(f"\n{'='*50}")
@@ -182,6 +184,12 @@ def main():
     p_run.add_argument("--products", nargs="+", required=True, help="Products as name:color")
     p_run.add_argument("--output", "-o", help="Output directory")
     p_run.add_argument("--session", "-s", default=None, help="Session name")
+    p_run.add_argument(
+        "--render-mode",
+        choices=["isolated", "white_background", "enhanced"],
+        default="white_background",
+        help="Render mode: isolated (transparent), white_background (studio), enhanced (premium)",
+    )
 
     args = parser.parse_args()
     config = Config()

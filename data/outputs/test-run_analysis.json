@@ -1,0 +1,48 @@
+{
+  "lighting": {
+    "type": "Mixed architectural: concealed cove strips, recessed downlights, theatrical saturated accent wash, and full-spectrum LED overheads",
+    "direction": "Omnidirectional with dominant upward cove bounce and overhead downlight fill; isolated theatrical spaces use full-envelope color flood",
+    "quality": "Bimodal — majority of frames render soft, diffused warmth with gentle highlight rolloff and lifted shadows; minority of frames apply hard monochromatic saturation with crushed blacks and zero fill"
+  },
+  "color_palette": {
+    "dominant": [
+      "warm champagne",
+      "burnished amber",
+      "raw sand",
+      "terracotta sienna",
+      "deep crimson monochrome",
+      "saturated cyan-teal"
+    ],
+    "accents": [
+      "brushed gold",
+      "coral-orange",
+      "deep navy-cobalt",
+      "neon chartreuse",
+      "soft blush pink"
+    ],
+    "temperature": "warm"
+  },
+  "grain": {
+    "type": "digital",
+    "intensity": "low",
+    "film_stock": "none — clean digital capture or CGI render; no luminance noise or chroma grain present across the set"
+  },
+  "lens": {
+    "focal_length": "16–24mm equivalent rectilinear wide-angle",
+    "aperture": "f/5.6–f/8 estimated",
+    "depth_of_field": "deep"
+  },
+  "atmosphere": [
+    "architectural highlight rolloff on curved surfaces and vaulted ceilings",
+    "warm atmospheric bloom emanating from concealed cove sources",
+    "full-envelope monochromatic color cast in theatrical volumes (crimson, cyan, deep cobalt)",
+    "crushed blacks in high-drama spaces with near-zero shadow recovery",
+    "reflective floor doubling — polished stone and lacquer surfaces creating symmetrical light pools",
+    "glass-panel color temperature contrast — warm amber exterior bleeding against cool-cast interior rooms",
+    "subtle vignetting in smaller-format architectural crops",
+    "neon edge-light halo and inter-reflection off grid-textured wall panels",
+    "point-light scatter creating luminous dot fields in the deep-blue immersive space",
+    "clean clinical overexposure in white-box tech retail versus rich underlighting in luxury warm volumes"
+  ],
+  "style_summary": "The moodboard exhibits a deliberate bifurcation between two photographic registers unified by an absence of grain and a deep-focus architectural lens. The dominant register — spanning the majority of the set — employs concealed cove lighting and warm tungsten-balanced sources to produce soft highlight rolloff over cream, amber, and terracotta surfaces, with lifted blacks, muted tonal contrast, and a gold-champagne color cast that reads as restrained opulence. The second register deploys theatrical full-envelope color saturation — monochromatic crimson, saturated cyan-teal, and deep cobalt-blue — with crushed shadows, reflective floor doubling, and point-light scatter to create immersive, high-drama volumes. Across both registers, the lens vocabulary is consistent: wide-angle rectilinear capture at f/5.6–f/8 maintains deep focus with minimal geometric distortion, emphasizing volumetric depth and spatial scale. The result is a photographic language that oscillates between warm editorial interiors and scenographic color-field installations, always prioritizing tonal precision and spatial authority over documentary realism."
+}

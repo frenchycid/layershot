@@ -1,0 +1,37 @@
+{
+  "style_summary": "Ultra-realistic 3D CGI retail gondola render, Sephora Collection, blush pink soft matte structure with colorful cosmetic products, professional studio lighting",
+  "colors": {
+    "primary": "blush pink #F2C4C4",
+    "secondary": "white #FFFFFF",
+    "accent": "multicolor product packaging (orange, green, teal, pink, yellow)",
+    "text": "black #1A1A1A",
+    "metal": "brushed chrome"
+  },
+  "lighting": {
+    "type": "soft studio",
+    "direction": "frontal with slight top-down",
+    "shadows": "subtle, soft edges",
+    "temperature": "5500K neutral-warm",
+    "highlights": "gentle specular on plastic surfaces"
+  },
+  "materials": {
+    "structure": "matte polypropylene pink, slight satin sheen",
+    "shelves": "transparent acrylic dividers",
+    "price_tags": "digital ESL tags, black LCD",
+    "products": "printed cardboard packaging, glossy and matte mix"
+  },
+  "composition": {
+    "angle": "3/4 front perspective",
+    "framing": "full gondola visible, head-on retail display",
+    "depth_of_field": "full depth, all shelves sharp",
+    "format": "vertical portrait"
+  },
+  "brand_elements": {
+    "logo": "SEPHORA COLLECTION engraved base plate",
+    "campaign": "INSTANT MASK signage panel",
+    "typography": "clean sans-serif, black labels",
+    "shelf_labels": ["HYDROGEL MASKS", "TARGETED CARE", "LIP CARE", "EYE CARE", "BODY CARE", "CLEANSING WIPES"]
+  },
+  "render_style": "photorealistic CGI, commercial retail photography standard, 8K resolution equivalent, no visible artifacts",
+  "use_case": "retail planogram visualization, Vision Pro AR preview, client presentation"
+}

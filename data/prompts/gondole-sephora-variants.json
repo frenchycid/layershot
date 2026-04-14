@@ -1,0 +1,14 @@
+{
+  "isolated": {
+    "base_prompt": "INSERT YOUR PRODUCT HERE, ultra-realistic 3D CGI retail gondola, blush pink matte polypropylene structure, multi-level shelving unit with colorful cosmetic products, SEPHORA COLLECTION engraved base, transparent background PNG, product isolated on alpha channel, no background, commercial retail photography quality, 8K resolution, photorealistic materials, soft ambient occlusion, 3/4 front perspective",
+    "negative_prompt": "background, room, floor, ceiling, people, blurry, low quality, cartoon, illustration, watermark, text overlay"
+  },
+  "white_background": {
+    "base_prompt": "INSERT YOUR PRODUCT HERE, ultra-realistic 3D CGI retail gondola render, blush pink soft matte finish structure, multi-level cosmetic display shelf fully loaded with colorful Sephora products, SEPHORA COLLECTION branding visible, pure white studio cyclorama background, professional product photography, even soft-box lighting 5500K, zero shadows, commercial catalog quality, photorealistic, high detail",
+    "negative_prompt": "dark background, shadows, vignette, people, room context, outdoor, low quality, artifacts"
+  },
+  "enhanced": {
+    "base_prompt": "INSERT YOUR PRODUCT HERE, premium ultra-realistic 3D CGI retail gondola, blush rose powder matte structure with enhanced material definition, micro-texture visible on plastic surfaces, subtle specular highlights on chrome dividers, colorful cosmetic packaging with crisp label typography, SEPHORA COLLECTION gold-engraved base plate, enhanced depth and volume, luxury commercial photography, cinematic color grading, lifted blacks, warm highlights, ultra-sharp details at 8K, professional CGI render farm quality",
+    "negative_prompt": "flat lighting, washed out colors, low contrast, artifacts, noise, blurry text, missing labels"
+  }
+}

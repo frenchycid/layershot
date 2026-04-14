@@ -1,0 +1,216 @@
+{
+  "status": "complete",
+  "session": "test-run",
+  "elapsed_s": 1815.7,
+  "moodboard_images": 48,
+  "style_analysis": {
+    "lighting": {
+      "type": "Mixed architectural: concealed cove strips, recessed downlights, theatrical saturated accent wash, and full-spectrum LED overheads",
+      "direction": "Omnidirectional with dominant upward cove bounce and overhead downlight fill; isolated theatrical spaces use full-envelope color flood",
+      "quality": "Bimodal — majority of frames render soft, diffused warmth with gentle highlight rolloff and lifted shadows; minority of frames apply hard monochromatic saturation with crushed blacks and zero fill"
+    },
+    "color_palette": {
+      "dominant": [
+        "warm champagne",
+        "burnished amber",
+        "raw sand",
+        "terracotta sienna",
+        "deep crimson monochrome",
+        "saturated cyan-teal"
+      ],
+      "accents": [
+        "brushed gold",
+        "coral-orange",
+        "deep navy-cobalt",
+        "neon chartreuse",
+        "soft blush pink"
+      ],
+      "temperature": "warm"
+    },
+    "grain": {
+      "type": "digital",
+      "intensity": "low",
+      "film_stock": "none — clean digital capture or CGI render; no luminance noise or chroma grain present across the set"
+    },
+    "lens": {
+      "focal_length": "16–24mm equivalent rectilinear wide-angle",
+      "aperture": "f/5.6–f/8 estimated",
+      "depth_of_field": "deep"
+    },
+    "atmosphere": [
+      "architectural highlight rolloff on curved surfaces and vaulted ceilings",
+      "warm atmospheric bloom emanating from concealed cove sources",
+      "full-envelope monochromatic color cast in theatrical volumes (crimson, cyan, deep cobalt)",
+      "crushed blacks in high-drama spaces with near-zero shadow recovery",
+      "reflective floor doubling — polished stone and lacquer surfaces creating symmetrical light pools",
+      "glass-panel color temperature contrast — warm amber exterior bleeding against cool-cast interior rooms",
+      "subtle vignetting in smaller-format architectural crops",
+      "neon edge-light halo and inter-reflection off grid-textured wall panels",
+      "point-light scatter creating luminous dot fields in the deep-blue immersive space",
+      "clean clinical overexposure in white-box tech retail versus rich underlighting in luxury warm volumes"
+    ],
+    "style_summary": "The moodboard exhibits a deliberate bifurcation between two photographic registers unified by an absence of grain and a deep-focus architectural lens. The dominant register — spanning the majority of the set — employs concealed cove lighting and warm tungsten-balanced sources to produce soft highlight rolloff over cream, amber, and terracotta surfaces, with lifted blacks, muted tonal contrast, and a gold-champagne color cast that reads as restrained opulence. The second register deploys theatrical full-envelope color saturation — monochromatic crimson, saturated cyan-teal, and deep cobalt-blue — with crushed shadows, reflective floor doubling, and point-light scatter to create immersive, high-drama volumes. Across both registers, the lens vocabulary is consistent: wide-angle rectilinear capture at f/5.6–f/8 maintains deep focus with minimal geometric distortion, emphasizing volumetric depth and spatial scale. The result is a photographic language that oscillates between warm editorial interiors and scenographic color-field installations, always prioritizing tonal precision and spatial authority over documentary realism."
+  },
+  "master_prompt": "INSERT YOUR PRODUCT HERE placed within a luxury architectural retail interior environment, 16–24mm rectilinear wide-angle lens equivalent, f/7.1 aperture, deep focus maintained throughout entire frame",
+  "generation": {
+    "total": 12,
+    "completed": 12,
+    "errors": 0,
+    "results": [
+      {
+        "filename": "handbag_black_wide_001.png",
+        "status": "ok",
+        "seed": 388,
+        "time_s": 64.33,
+        "prompt": "black handbag placed within a luxury architectural retail interior environment, 16–24mm rectilinear wide-angle lens equivalent, f/7.1 aperture, deep focus maintained throughout entire frame plane, concealed cove strip lighting with dominant upward bounce illumination, warm champagne and burnished amber color temperature saturating cream and terracotta wall surfaces, overhead recessed downlight fill providing soft diffused secondary key, gentle architectural highlight rolloff across curved surfaces and vaulted ceiling planes, warm atmospheric bloom emanating from hidden cove source perimeter, lifted shadow register with muted tonal contrast and preserved mid-shadow detail, reflective polished lacquer and stone floor plane with symmetrical luminous pool doubling, raw sand and terracotta sienna ground palette, brushed gold and coral-orange specular accents, glass-panel color temperature contrast where warm amber exterior bleeds against cooler interior architectural zones, subtle peripheral vignetting, clean digital capture zero film grain zero chroma noise zero luminance noise, restrained editorial opulence register, volumetric spatial depth and tonal precision over documentary realism, commercial luxury product photography, CGI-render surface fidelity, 16mm rectilinear establishing frame, full vaulted architectural volume in field, cove light perimeter and ceiling plane visible, reflective floor extending into deep background, symmetrical bilateral composition, foreground-to-infinity deep focus, spatial authority and volumetric scale",
+        "path": "/Users/davidciavatti/projects/layershot/data/outputs/handbag_black_wide_001.png",
+        "product_name": "handbag",
+        "color": "black",
+        "view": "wide",
+        "variant": 1
+      },
+      {
+        "filename": "handbag_black_wide_002.png",
+        "status": "ok",
+        "seed": 65036,
+        "time_s": 115.57,
+        "prompt": "black handbag placed within a luxury architectural retail interior environment, 16–24mm rectilinear wide-angle lens equivalent, f/7.1 aperture, deep focus maintained throughout entire frame plane, concealed cove strip lighting with dominant upward bounce illumination, warm champagne and burnished amber color temperature saturating cream and terracotta wall surfaces, overhead recessed downlight fill providing soft diffused secondary key, gentle architectural highlight rolloff across curved surfaces and vaulted ceiling planes, warm atmospheric bloom emanating from hidden cove source perimeter, lifted shadow register with muted tonal contrast and preserved mid-shadow detail, reflective polished lacquer and stone floor plane with symmetrical luminous pool doubling, raw sand and terracotta sienna ground palette, brushed gold and coral-orange specular accents, glass-panel color temperature contrast where warm amber exterior bleeds against cooler interior architectural zones, subtle peripheral vignetting, clean digital capture zero film grain zero chroma noise zero luminance noise, restrained editorial opulence register, volumetric spatial depth and tonal precision over documentary realism, commercial luxury product photography, CGI-render surface fidelity, 16mm rectilinear establishing frame, full vaulted architectural volume in field, cove light perimeter and ceiling plane visible, reflective floor extending into deep background, symmetrical bilateral composition, foreground-to-infinity deep focus, spatial authority and volumetric scale",
+        "path": "/Users/davidciavatti/projects/layershot/data/outputs/handbag_black_wide_002.png",
+        "product_name": "handbag",
+        "color": "black",
+        "view": "wide",
+        "variant": 2
+      },
+      {
+        "filename": "handbag_black_wide_003.png",
+        "status": "ok",
+        "seed": 80749,
+        "time_s": 112.96,
+        "prompt": "black handbag placed within a luxury architectural retail interior environment, 16–24mm rectilinear wide-angle lens equivalent, f/7.1 aperture, deep focus maintained throughout entire frame plane, concealed cove strip lighting with dominant upward bounce illumination, warm champagne and burnished amber color temperature saturating cream and terracotta wall surfaces, overhead recessed downlight fill providing soft diffused secondary key, gentle architectural highlight rolloff across curved surfaces and vaulted ceiling planes, warm atmospheric bloom emanating from hidden cove source perimeter, lifted shadow register with muted tonal contrast and preserved mid-shadow detail, reflective polished lacquer and stone floor plane with symmetrical luminous pool doubling, raw sand and terracotta sienna ground palette, brushed gold and coral-orange specular accents, glass-panel color temperature contrast where warm amber exterior bleeds against cooler interior architectural zones, subtle peripheral vignetting, clean digital capture zero film grain zero chroma noise zero luminance noise, restrained editorial opulence register, volumetric spatial depth and tonal precision over documentary realism, commercial luxury product photography, CGI-render surface fidelity, 16mm rectilinear establishing frame, full vaulted architectural volume in field, cove light perimeter and ceiling plane visible, reflective floor extending into deep background, symmetrical bilateral composition, foreground-to-infinity deep focus, spatial authority and volumetric scale",
+        "path": "/Users/davidciavatti/projects/layershot/data/outputs/handbag_black_wide_003.png",
+        "product_name": "handbag",
+        "color": "black",
+        "view": "wide",
+        "variant": 3
+      },
+      {
+        "filename": "handbag_black_closeup_001.png",
+        "status": "ok",
+        "seed": 93859,
+        "time_s": 104.97,
+        "prompt": "black handbag placed within a luxury architectural retail interior environment, 16–24mm rectilinear wide-angle lens equivalent, f/7.1 aperture, deep focus maintained throughout entire frame plane, concealed cove strip lighting with dominant upward bounce illumination, warm champagne and burnished amber color temperature saturating cream and terracotta wall surfaces, overhead recessed downlight fill providing soft diffused secondary key, gentle architectural highlight rolloff across curved surfaces and vaulted ceiling planes, warm atmospheric bloom emanating from hidden cove source perimeter, lifted shadow register with muted tonal contrast and preserved mid-shadow detail, reflective polished lacquer and stone floor plane with symmetrical luminous pool doubling, raw sand and terracotta sienna ground palette, brushed gold and coral-orange specular accents, glass-panel color temperature contrast where warm amber exterior bleeds against cooler interior architectural zones, subtle peripheral vignetting, clean digital capture zero film grain zero chroma noise zero luminance noise, restrained editorial opulence register, volumetric spatial depth and tonal precision over documentary realism, commercial luxury product photography, CGI-render surface fidelity, tight 60–90mm equivalent crop, macro surface material fidelity, specular cove-light catchlight reflected in product finish, brushed gold and amber point highlights on surface geometry, extreme tonal precision on highlight-to-midtone rolloff edge",
+        "path": "/Users/davidciavatti/projects/layershot/data/outputs/handbag_black_closeup_001.png",
+        "product_name": "handbag",
+        "color": "black",
+        "view": "closeup",
+        "variant": 1
+      },
+      {
+        "filename": "handbag_black_closeup_002.png",
+        "status": "ok",
+        "seed": 98895,
+        "time_s": 101.39,
+        "prompt": "black handbag placed within a luxury architectural retail interior environment, 16–24mm rectilinear wide-angle lens equivalent, f/7.1 aperture, deep focus maintained throughout entire frame plane, concealed cove strip lighting with dominant upward bounce illumination, warm champagne and burnished amber color temperature saturating cream and terracotta wall surfaces, overhead recessed downlight fill providing soft diffused secondary key, gentle architectural highlight rolloff across curved surfaces and vaulted ceiling planes, warm atmospheric bloom emanating from hidden cove source perimeter, lifted shadow register with muted tonal contrast and preserved mid-shadow detail, reflective polished lacquer and stone floor plane with symmetrical luminous pool doubling, raw sand and terracotta sienna ground palette, brushed gold and coral-orange specular accents, glass-panel color temperature contrast where warm amber exterior bleeds against cooler interior architectural zones, subtle peripheral vignetting, clean digital capture zero film grain zero chroma noise zero luminance noise, restrained editorial opulence register, volumetric spatial depth and tonal precision over documentary realism, commercial luxury product photography, CGI-render surface fidelity, tight 60–90mm equivalent crop, macro surface material fidelity, specular cove-light catchlight reflected in product finish, brushed gold and amber point highlights on surface geometry, extreme tonal precision on highlight-to-midtone rolloff edge",
+        "path": "/Users/davidciavatti/projects/layershot/data/outputs/handbag_black_closeup_002.png",
+        "product_name": "handbag",
+        "color": "black",
+        "view": "closeup",
+        "variant": 2
+      },
+      {
+        "filename": "handbag_black_closeup_003.png",
+        "status": "ok",
+        "seed": 364,
+        "time_s": 105.17,
+        "prompt": "black handbag placed within a luxury architectural retail interior environment, 16–24mm rectilinear wide-angle lens equivalent, f/7.1 aperture, deep focus maintained throughout entire frame plane, concealed cove strip lighting with dominant upward bounce illumination, warm champagne and burnished amber color temperature saturating cream and terracotta wall surfaces, overhead recessed downlight fill providing soft diffused secondary key, gentle architectural highlight rolloff across curved surfaces and vaulted ceiling planes, warm atmospheric bloom emanating from hidden cove source perimeter, lifted shadow register with muted tonal contrast and preserved mid-shadow detail, reflective polished lacquer and stone floor plane with symmetrical luminous pool doubling, raw sand and terracotta sienna ground palette, brushed gold and coral-orange specular accents, glass-panel color temperature contrast where warm amber exterior bleeds against cooler interior architectural zones, subtle peripheral vignetting, clean digital capture zero film grain zero chroma noise zero luminance noise, restrained editorial opulence register, volumetric spatial depth and tonal precision over documentary realism, commercial luxury product photography, CGI-render surface fidelity, tight 60–90mm equivalent crop, macro surface material fidelity, specular cove-light catchlight reflected in product finish, brushed gold and amber point highlights on surface geometry, extreme tonal precision on highlight-to-midtone rolloff edge",
+        "path": "/Users/davidciavatti/projects/layershot/data/outputs/handbag_black_closeup_003.png",
+        "product_name": "handbag",
+        "color": "black",
+        "view": "closeup",
+        "variant": 3
+      },
+      {
+        "filename": "handbag_black_medium_001.png",
+        "status": "ok",
+        "seed": 5623,
+        "time_s": 99.96,
+        "prompt": "black handbag placed within a luxury architectural retail interior environment, 16–24mm rectilinear wide-angle lens equivalent, f/7.1 aperture, deep focus maintained throughout entire frame plane, concealed cove strip lighting with dominant upward bounce illumination, warm champagne and burnished amber color temperature saturating cream and terracotta wall surfaces, overhead recessed downlight fill providing soft diffused secondary key, gentle architectural highlight rolloff across curved surfaces and vaulted ceiling planes, warm atmospheric bloom emanating from hidden cove source perimeter, lifted shadow register with muted tonal contrast and preserved mid-shadow detail, reflective polished lacquer and stone floor plane with symmetrical luminous pool doubling, raw sand and terracotta sienna ground palette, brushed gold and coral-orange specular accents, glass-panel color temperature contrast where warm amber exterior bleeds against cooler interior architectural zones, subtle peripheral vignetting, clean digital capture zero film grain zero chroma noise zero luminance noise, restrained editorial opulence register, volumetric spatial depth and tonal precision over documentary realism, commercial luxury product photography, CGI-render surface fidelity, 24mm rectilinear medium frame, product occupying 45–60% of field, architectural warm volume visible in background register, overhead downlight key with cove bounce fill wrapping form, warm champagne color cast on primary facing planes, muted shadow base beneath product footprint",
+        "path": "/Users/davidciavatti/projects/layershot/data/outputs/handbag_black_medium_001.png",
+        "product_name": "handbag",
+        "color": "black",
+        "view": "medium",
+        "variant": 1
+      },
+      {
+        "filename": "handbag_black_medium_002.png",
+        "status": "ok",
+        "seed": 5652,
+        "time_s": 101.15,
+        "prompt": "black handbag placed within a luxury architectural retail interior environment, 16–24mm rectilinear wide-angle lens equivalent, f/7.1 aperture, deep focus maintained throughout entire frame plane, concealed cove strip lighting with dominant upward bounce illumination, warm champagne and burnished amber color temperature saturating cream and terracotta wall surfaces, overhead recessed downlight fill providing soft diffused secondary key, gentle architectural highlight rolloff across curved surfaces and vaulted ceiling planes, warm atmospheric bloom emanating from hidden cove source perimeter, lifted shadow register with muted tonal contrast and preserved mid-shadow detail, reflective polished lacquer and stone floor plane with symmetrical luminous pool doubling, raw sand and terracotta sienna ground palette, brushed gold and coral-orange specular accents, glass-panel color temperature contrast where warm amber exterior bleeds against cooler interior architectural zones, subtle peripheral vignetting, clean digital capture zero film grain zero chroma noise zero luminance noise, restrained editorial opulence register, volumetric spatial depth and tonal precision over documentary realism, commercial luxury product photography, CGI-render surface fidelity, 24mm rectilinear medium frame, product occupying 45–60% of field, architectural warm volume visible in background register, overhead downlight key with cove bounce fill wrapping form, warm champagne color cast on primary facing planes, muted shadow base beneath product footprint",
+        "path": "/Users/davidciavatti/projects/layershot/data/outputs/handbag_black_medium_002.png",
+        "product_name": "handbag",
+        "color": "black",
+        "view": "medium",
+        "variant": 2
+      },
+      {
+        "filename": "handbag_black_medium_003.png",
+        "status": "ok",
+        "seed": 6874,
+        "time_s": 99.26,
+        "prompt": "black handbag placed within a luxury architectural retail interior environment, 16–24mm rectilinear wide-angle lens equivalent, f/7.1 aperture, deep focus maintained throughout entire frame plane, concealed cove strip lighting with dominant upward bounce illumination, warm champagne and burnished amber color temperature saturating cream and terracotta wall surfaces, overhead recessed downlight fill providing soft diffused secondary key, gentle architectural highlight rolloff across curved surfaces and vaulted ceiling planes, warm atmospheric bloom emanating from hidden cove source perimeter, lifted shadow register with muted tonal contrast and preserved mid-shadow detail, reflective polished lacquer and stone floor plane with symmetrical luminous pool doubling, raw sand and terracotta sienna ground palette, brushed gold and coral-orange specular accents, glass-panel color temperature contrast where warm amber exterior bleeds against cooler interior architectural zones, subtle peripheral vignetting, clean digital capture zero film grain zero chroma noise zero luminance noise, restrained editorial opulence register, volumetric spatial depth and tonal precision over documentary realism, commercial luxury product photography, CGI-render surface fidelity, 24mm rectilinear medium frame, product occupying 45–60% of field, architectural warm volume visible in background register, overhead downlight key with cove bounce fill wrapping form, warm champagne color cast on primary facing planes, muted shadow base beneath product footprint",
+        "path": "/Users/davidciavatti/projects/layershot/data/outputs/handbag_black_medium_003.png",
+        "product_name": "handbag",
+        "color": "black",
+        "view": "medium",
+        "variant": 3
+      },
+      {
+        "filename": "handbag_black_interior_001.png",
+        "status": "ok",
+        "seed": 6220,
+        "time_s": 101.19,
+        "prompt": "black handbag placed within a luxury architectural retail interior environment, 16–24mm rectilinear wide-angle lens equivalent, f/7.1 aperture, deep focus maintained throughout entire frame plane, concealed cove strip lighting with dominant upward bounce illumination, warm champagne and burnished amber color temperature saturating cream and terracotta wall surfaces, overhead recessed downlight fill providing soft diffused secondary key, gentle architectural highlight rolloff across curved surfaces and vaulted ceiling planes, warm atmospheric bloom emanating from hidden cove source perimeter, lifted shadow register with muted tonal contrast and preserved mid-shadow detail, reflective polished lacquer and stone floor plane with symmetrical luminous pool doubling, raw sand and terracotta sienna ground palette, brushed gold and coral-orange specular accents, glass-panel color temperature contrast where warm amber exterior bleeds against cooler interior architectural zones, subtle peripheral vignetting, clean digital capture zero film grain zero chroma noise zero luminance noise, restrained editorial opulence register, volumetric spatial depth and tonal precision over documentary realism, commercial luxury product photography, CGI-render surface fidelity, full-envelope theatrical color saturation mode, monochromatic crimson or saturated cyan-teal or deep cobalt-blue ambient flood, crushed blacks with near-zero shadow recovery, reflective floor plane with symmetrical point-light scatter pools, neon edge-light halo inter-reflection off grid-textured wall panels, high-drama immersive volume, product as tonal anchor against color-field installation",
+        "path": "/Users/davidciavatti/projects/layershot/data/outputs/handbag_black_interior_001.png",
+        "product_name": "handbag",
+        "color": "black",
+        "view": "interior",
+        "variant": 1
+      },
+      {
+        "filename": "handbag_black_interior_002.png",
+        "status": "ok",
+        "seed": 7470,
+        "time_s": 101.92,
+        "prompt": "black handbag placed within a luxury architectural retail interior environment, 16–24mm rectilinear wide-angle lens equivalent, f/7.1 aperture, deep focus maintained throughout entire frame plane, concealed cove strip lighting with dominant upward bounce illumination, warm champagne and burnished amber color temperature saturating cream and terracotta wall surfaces, overhead recessed downlight fill providing soft diffused secondary key, gentle architectural highlight rolloff across curved surfaces and vaulted ceiling planes, warm atmospheric bloom emanating from hidden cove source perimeter, lifted shadow register with muted tonal contrast and preserved mid-shadow detail, reflective polished lacquer and stone floor plane with symmetrical luminous pool doubling, raw sand and terracotta sienna ground palette, brushed gold and coral-orange specular accents, glass-panel color temperature contrast where warm amber exterior bleeds against cooler interior architectural zones, subtle peripheral vignetting, clean digital capture zero film grain zero chroma noise zero luminance noise, restrained editorial opulence register, volumetric spatial depth and tonal precision over documentary realism, commercial luxury product photography, CGI-render surface fidelity, full-envelope theatrical color saturation mode, monochromatic crimson or saturated cyan-teal or deep cobalt-blue ambient flood, crushed blacks with near-zero shadow recovery, reflective floor plane with symmetrical point-light scatter pools, neon edge-light halo inter-reflection off grid-textured wall panels, high-drama immersive volume, product as tonal anchor against color-field installation",
+        "path": "/Users/davidciavatti/projects/layershot/data/outputs/handbag_black_interior_002.png",
+        "product_name": "handbag",
+        "color": "black",
+        "view": "interior",
+        "variant": 2
+      },
+      {
+        "filename": "handbag_black_interior_003.png",
+        "status": "ok",
+        "seed": 9458,
+        "time_s": 95.31,
+        "prompt": "black handbag placed within a luxury architectural retail interior environment, 16–24mm rectilinear wide-angle lens equivalent, f/7.1 aperture, deep focus maintained throughout entire frame plane, concealed cove strip lighting with dominant upward bounce illumination, warm champagne and burnished amber color temperature saturating cream and terracotta wall surfaces, overhead recessed downlight fill providing soft diffused secondary key, gentle architectural highlight rolloff across curved surfaces and vaulted ceiling planes, warm atmospheric bloom emanating from hidden cove source perimeter, lifted shadow register with muted tonal contrast and preserved mid-shadow detail, reflective polished lacquer and stone floor plane with symmetrical luminous pool doubling, raw sand and terracotta sienna ground palette, brushed gold and coral-orange specular accents, glass-panel color temperature contrast where warm amber exterior bleeds against cooler interior architectural zones, subtle peripheral vignetting, clean digital capture zero film grain zero chroma noise zero luminance noise, restrained editorial opulence register, volumetric spatial depth and tonal precision over documentary realism, commercial luxury product photography, CGI-render surface fidelity, full-envelope theatrical color saturation mode, monochromatic crimson or saturated cyan-teal or deep cobalt-blue ambient flood, crushed blacks with near-zero shadow recovery, reflective floor plane with symmetrical point-light scatter pools, neon edge-light halo inter-reflection off grid-textured wall panels, high-drama immersive volume, product as tonal anchor against color-field installation",
+        "path": "/Users/davidciavatti/projects/layershot/data/outputs/handbag_black_interior_003.png",
+        "product_name": "handbag",
+        "color": "black",
+        "view": "interior",
+        "variant": 3
+      }
+    ],
+    "elapsed_s": 1205.8
+  },
+  "review": {
+    "total_reviewed": 36,
+    "kept": 33,
+    "to_regenerate": 0,
+    "best": {
+      "path": "/Users/davidciavatti/projects/layershot/data/outputs/crystal-perfume-bottle_champagne_interior_002.png",
+      "score": 8.1
+    }
+  }
+}
