@@ -16,6 +16,7 @@ class Config:
     ollama_vision_model: str = "llava"
     views: List[str] = field(default_factory=lambda: ["wide", "closeup", "medium", "interior"])
     variants_per_view: int = 3
+    render_modes: List[str] = field(default_factory=lambda: ["isolated", "white_background", "enhanced"])
     image_width: int = 1024
     image_height: int = 1024
     flux_steps: int = 15
