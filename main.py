@@ -191,8 +191,17 @@ def main():
         help="Render mode: isolated (transparent), white_background (studio), enhanced (premium)",
     )
 
+    parser.add_argument(
+        "--backend",
+        choices=["auto", "ollama", "claude", "mlx"],
+        default=None,
+        help="AI backend: mlx (Apple Silicon, local, free) | ollama (local) | claude (API) | auto",
+    )
+
     args = parser.parse_args()
     config = Config()
+    if args.backend:
+        config.backend = args.backend
     config.ensure_dirs()
 
     logging.basicConfig(

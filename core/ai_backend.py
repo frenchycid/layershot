@@ -25,19 +25,46 @@ class AIBackend:
         log.info(f"AI backend: {self.backend_name}")
 
     def _detect(self) -> str:
+        forced = self.config.backend
+        if forced == "mlx":
+            try:
+                import mlx_lm  # noqa: F401
+                return "mlx"
+            except ImportError:
+                raise RuntimeError(
+                    "mlx_lm not found. Install with: pip install mlx-lm mlx-vlm"
+                )
+        if forced == "ollama":
+            if shutil.which("ollama"):
+                return "ollama"
+            raise RuntimeError("Ollama not found. Install it at https://ollama.ai")
+        if forced == "claude":
+            if shutil.which("claude"):
+                return "claude"
+            raise RuntimeError("Claude CLI not found. Install it at https://claude.ai/code")
+        # auto: prefer claude, fall back to ollama, then mlx
         if shutil.which("claude"):
             return "claude"
         if shutil.which("ollama"):
             return "ollama"
+        try:
+            import mlx_lm  # noqa: F401
+            return "mlx"
+        except ImportError:
+            pass
         raise RuntimeError(
-            "No AI backend found. Install Claude Code (https://claude.ai/code) "
-            "or Ollama (https://ollama.ai)."
+            "No AI backend found. Options:\n"
+            "  • MLX (Apple Silicon):  pip install mlx-lm mlx-vlm\n"
+            "  • Ollama (local):       https://ollama.ai\n"
+            "  • Claude Code (API):    https://claude.ai/code"
         )
 
     def complete(self, prompt: str, system: Optional[str] = None) -> str:
         """Send a text prompt and get a response."""
         if self.backend_name == "claude":
             return self._claude_complete(prompt, system)
+        if self.backend_name == "mlx":
+            return self._mlx_complete(prompt, system)
         return self._ollama_complete(prompt, system)
 
     def analyze_images(self, image_paths: List[str], prompt: str,
@@ -45,6 +72,8 @@ class AIBackend:
         """Analyze one or more images with a prompt."""
         if self.backend_name == "claude":
             return self._claude_vision(image_paths, prompt, system)
+        if self.backend_name == "mlx":
+            return self._mlx_vision(image_paths, prompt, system)
         return self._ollama_vision(image_paths, prompt, system)
 
     def analyze_image(self, prompt: str, image_b64: str,
@@ -52,6 +81,8 @@ class AIBackend:
         """Analyze a single image provided as base64 string."""
         if self.backend_name == "claude":
             return self._claude_vision_b64(prompt, image_b64, system)
+        if self.backend_name == "mlx":
+            return self._mlx_vision_b64(prompt, image_b64, system)
         return self._ollama_vision_b64(prompt, image_b64, system)
 
     # ── Claude Code CLI ──
@@ -181,3 +212,80 @@ class AIBackend:
         )
         resp.raise_for_status()
         return resp.json()["response"]
+
+    # ── MLX (Apple Silicon — local, free, no GPU driver issues) ──
+
+    def _mlx_load_text(self):
+        """Lazy-load the MLX text model (cached on self)."""
+        if not hasattr(self, "_mlx_text_model"):
+            from mlx_lm import load
+            log.info(f"Loading MLX text model: {self.config.mlx_text_model}")
+            self._mlx_text_model, self._mlx_text_tokenizer = load(
+                self.config.mlx_text_model
+            )
+
+    def _mlx_load_vision(self):
+        """Lazy-load the MLX vision model (cached on self)."""
+        if not hasattr(self, "_mlx_vlm_model"):
+            try:
+                from mlx_vlm import load
+                from mlx_vlm.utils import load_config
+            except ImportError:
+                raise RuntimeError(
+                    "mlx_vlm not found. Install with: pip install mlx-vlm"
+                )
+            log.info(f"Loading MLX vision model: {self.config.mlx_vision_model}")
+            self._mlx_vlm_model, self._mlx_vlm_processor = load(
+                self.config.mlx_vision_model
+            )
+            self._mlx_vlm_config = load_config(self.config.mlx_vision_model)
+
+    def _mlx_complete(self, prompt: str, system: Optional[str] = None) -> str:
+        from mlx_lm import generate
+        self._mlx_load_text()
+        full_prompt = f"{system}\n\n{prompt}" if system else prompt
+        return generate(
+            self._mlx_text_model,
+            self._mlx_text_tokenizer,
+            prompt=full_prompt,
+            max_tokens=4096,
+            verbose=False,
+        )
+
+    def _mlx_vision(self, image_paths: List[str], prompt: str,
+                    system: Optional[str] = None) -> str:
+        """Analyze images with MLX vision model — processes up to 5 images sequentially."""
+        from mlx_vlm import generate
+        from mlx_vlm.prompt_utils import apply_chat_template
+        self._mlx_load_vision()
+        full_prompt = f"{system}\n\n{prompt}" if system else prompt
+        # MLX-VLM processes one image at a time; concatenate results for batches
+        results = []
+        for path in image_paths[:5]:
+            formatted = apply_chat_template(
+                self._mlx_vlm_processor,
+                self._mlx_vlm_config,
+                full_prompt,
+                num_images=1,
+            )
+            result = generate(
+                self._mlx_vlm_model,
+                self._mlx_vlm_processor,
+                path,
+                formatted,
+                max_tokens=2048,
+                verbose=False,
+            )
+            results.append(result)
+        return "\n---\n".join(results) if len(results) > 1 else results[0]
+
+    def _mlx_vision_b64(self, prompt: str, image_b64: str,
+                        system: Optional[str] = None) -> str:
+        """Analyze a base64 image with MLX vision — writes to temp file first."""
+        with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as f:
+            temp_path = f.name
+            f.write(base64.b64decode(image_b64))
+        try:
+            return self._mlx_vision([temp_path], prompt, system)
+        finally:
+            Path(temp_path).unlink()
