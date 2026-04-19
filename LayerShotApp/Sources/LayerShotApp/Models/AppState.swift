@@ -16,6 +16,16 @@ public class AppState {
     public var pythonPath: String = "/usr/bin/python3"
     public var projectPath: String
 
+    public var isAuthenticated: Bool {
+        get { UserDefaults.standard.bool(forKey: "isAuthenticated") }
+        set { UserDefaults.standard.set(newValue, forKey: "isAuthenticated") }
+    }
+
+    public var claudeApiKey: String {
+        get { UserDefaults.standard.string(forKey: "claudeApiKey") ?? "" }
+        set { UserDefaults.standard.set(newValue, forKey: "claudeApiKey") }
+    }
+
     public init() {
         let home    = FileManager.default.homeDirectoryForCurrentUser
         projectPath = home.appendingPathComponent("projects/layershot").path

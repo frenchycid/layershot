@@ -27,11 +27,26 @@ public struct ContentView: View {
                 }
             }
             ToolbarItem(placement: .primaryAction) {
+                Button {
+                    appState.isAuthenticated = false
+                } label: {
+                    Image(systemName: "person.crop.circle")
+                }
+                .help("Déconnexion")
+            }
+            ToolbarItem(placement: .primaryAction) {
                 SettingsLink {
                     Image(systemName: "gear")
                 }
                 .help("Paramètres")
             }
+        }
+        .sheet(isPresented: Binding(
+            get: { !appState.isAuthenticated },
+            set: { if !$0 { appState.isAuthenticated = true } }
+        )) {
+            LoginView()
+                .environment(appState)
         }
     }
 }
