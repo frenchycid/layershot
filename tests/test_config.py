@@ -15,7 +15,7 @@ def test_default_data_paths():
 
 def test_default_views():
     cfg = Config()
-    assert set(cfg.views) == {"wide", "closeup", "medium", "interior"}
+    assert set(cfg.views) == {"wide", "closeup", "medium", "detail"}
 
 
 def test_default_variants_per_view():

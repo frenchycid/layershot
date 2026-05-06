@@ -10,6 +10,8 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 @dataclass
 class Config:
     flux_url: str = "http://localhost:8190"
+    flux_backend: str = "local"  # "local" | "hf_api"
+    hf_api_key: str = ""  # Set via HF_API_KEY env var
     ollama_url: str = "http://localhost:11434"
     # backend: "auto" (prefer claude) | "ollama" | "claude" | "mlx"
     backend: str = "mlx"
@@ -18,8 +20,11 @@ class Config:
     ollama_vision_model: str = "llava"
     # MLX (Apple Silicon local inference — no credits, no GPU issues)
     mlx_text_model: str = "mlx-community/Mistral-7B-Instruct-v0.3-4bit"
-    mlx_vision_model: str = "mlx-community/llava-1.5-7b-4bit"
-    views: List[str] = field(default_factory=lambda: ["wide", "closeup", "medium", "interior"])
+    mlx_vision_model: str = "mlx-community/Qwen2-VL-2B-Instruct-4bit"
+    # Default moodboard category — studio packshot references (not interior)
+    default_moodboard: str = "studio"
+    views: List[str] = field(default_factory=lambda: ["wide", "closeup", "medium", "detail"])
+    # Legacy: "interior" view is deprecated — replaced with "detail" for studio packshots
     variants_per_view: int = 3
     render_modes: List[str] = field(default_factory=lambda: ["isolated", "white_background", "enhanced"])
     image_width: int = 1024

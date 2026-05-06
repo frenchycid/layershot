@@ -1,11 +1,10 @@
-"""HTTP client for the local Flux2 image generation server."""
+"""FLUX 2.0 image generation — native Python (no server, no ComfyUI)."""
 
-import base64
 import logging
+import os
 from pathlib import Path
 from typing import Optional
-
-import httpx
+import time
 
 from core.config import Config
 
@@ -13,19 +12,50 @@ log = logging.getLogger("flux_client")
 
 
 class FluxClient:
-    """Client for the Flux2 Klein 9B server on localhost:8190."""
+    """Native FLUX.1-dev image generation via diffusers."""
 
     def __init__(self, config: Optional[Config] = None):
         self.config = config or Config()
-        self.base_url = self.config.flux_url
+        self.model_id = "stabilityai/stable-diffusion-xl-base-1.0"  # Open access, pro quality
+        self.pipe = None
+        self.device = "cpu"
+        log.info(f"FluxClient: SDXL native (pro quality, no server)")
+
+    def _load_model(self):
+        """Lazy-load SDXL model."""
+        if self.pipe is not None:
+            return
+
+        log.info("Loading SDXL model (first run, ~7GB)...")
+        try:
+            from diffusers import StableDiffusionXLPipeline
+            import torch
+
+            if torch.backends.mps.is_available():
+                self.device = "mps"
+                log.info("Apple Silicon detected, using MPS")
+            elif torch.cuda.is_available():
+                self.device = "cuda"
+                log.info("CUDA available, using GPU")
+            else:
+                self.device = "cpu"
+
+            self.pipe = StableDiffusionXLPipeline.from_pretrained(
+                self.model_id,
+                torch_dtype=torch.float16 if self.device != "cpu" else torch.float32,
+            )
+            self.pipe = self.pipe.to(self.device)
+            log.info(f"✓ SDXL loaded on {self.device}")
+        except Exception as e:
+            log.error(f"Failed to load model: {e}")
+            raise
 
     def health(self) -> dict:
-        """Check if Flux server is running."""
+        """Check model availability."""
         try:
-            resp = httpx.get(f"{self.base_url}/health", timeout=5.0)
-            return resp.json()
+            import torch
+            return {"status": "ok", "backend": "native", "model": "SDXL", "device": self.device}
         except Exception as e:
-            log.warning(f"Flux server unreachable: {e}")
             return {"status": "unreachable", "error": str(e)}
 
     def generate(
@@ -37,38 +67,43 @@ class FluxClient:
         steps: Optional[int] = None,
         seed: Optional[int] = None,
     ) -> dict:
-        """Generate an image and save it to output_path.
+        """Generate image with FLUX.1-dev."""
+        self._load_model()
 
-        Returns dict with seed, time_s, prompt.
-        """
-        payload = {
-            "prompt": prompt,
-            "width": width or self.config.image_width,
-            "height": height or self.config.image_height,
-            "steps": steps or self.config.flux_steps,
-        }
-        if seed is not None:
-            payload["seed"] = seed
+        w = width or self.config.image_width
+        h = height or self.config.image_height
+        num_steps = steps or 30
 
-        log.info(f"Generating: {output_path.name}")
-        resp = httpx.post(
-            f"{self.base_url}/generate",
-            json=payload,
-            timeout=600.0,
-        )
-        resp.raise_for_status()
-        data = resp.json()
+        log.info(f"Generating: {output_path.name} ({w}x{h}, {num_steps} steps)")
+        start = time.time()
 
-        # Decode base64 image and save
-        b64_data = data["image"].split(",", 1)[1]
-        image_bytes = base64.b64decode(b64_data)
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-        output_path.write_bytes(image_bytes)
-        log.info(f"Saved: {output_path} (seed={data['seed']}, {data['time_s']}s)")
+        try:
+            import torch
 
-        return {
-            "seed": data["seed"],
-            "time_s": data["time_s"],
-            "prompt": data["prompt"],
-            "path": str(output_path),
-        }
+            # Generate with FLUX
+            with torch.inference_mode():
+                image = self.pipe(
+                    prompt=prompt,
+                    height=h,
+                    width=w,
+                    num_inference_steps=num_steps,
+                    guidance_scale=0.0,  # FLUX doesn't use guidance
+                    generator=torch.Generator(device=self.device).manual_seed(seed or 0) if seed else None,
+                ).images[0]
+
+            # Save
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            image.save(output_path)
+
+            elapsed = time.time() - start
+            log.info(f"✓ Saved: {output_path} ({elapsed:.1f}s)")
+
+            return {
+                "seed": seed or 0,
+                "time_s": elapsed,
+                "prompt": prompt,
+                "path": str(output_path),
+            }
+        except Exception as e:
+            log.error(f"Generation failed: {e}")
+            raise
