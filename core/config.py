@@ -14,7 +14,7 @@ class Config:
     hf_api_key: str = ""  # Set via HF_API_KEY env var
     ollama_url: str = "http://localhost:11434"
     # backend: "auto" (prefer claude) | "ollama" | "claude" | "mlx"
-    backend: str = "mlx"
+    backend: str = "auto"
     claude_model: str = "sonnet"
     ollama_text_model: str = "qwen3.5"
     ollama_vision_model: str = "llava"
