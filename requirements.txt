@@ -2,6 +2,6 @@ httpx>=0.27
 Pillow>=10.0
 pytest>=8.0
 numpy>=1.24.0
-rembg>=3.0.0
+rembg>=2.0.70
 mlx-lm>=0.1.0
 mlx-vlm>=0.1.0

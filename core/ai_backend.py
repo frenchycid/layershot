@@ -240,6 +240,34 @@ class AIBackend:
             )
             self._mlx_vlm_config = load_config(self.config.mlx_vision_model)
 
+            proc = self._mlx_vlm_processor
+
+            # Force slow image processor — fast processors reject mlx_vlm's
+            # return_tensors format with "Only returning PyTorch tensors is
+            # currently supported."
+            try:
+                from transformers import AutoImageProcessor
+                slow_ip = AutoImageProcessor.from_pretrained(
+                    self.config.mlx_vision_model, use_fast=False
+                )
+                proc.image_processor = slow_ip
+                log.info("Reloaded image_processor with use_fast=False")
+            except Exception as e:
+                log.warning(f"Could not force slow image processor: {e}")
+
+            # Patch missing patch_size on llava processor — mlx-community shards
+            # ship without it, but CLIP ViT-L/14 (llava-1.5 vision tower) uses 14.
+            if getattr(proc, "patch_size", None) is None:
+                patch_size = None
+                cfg = self._mlx_vlm_config or {}
+                vision_cfg = cfg.get("vision_config") if isinstance(cfg, dict) else None
+                if isinstance(vision_cfg, dict):
+                    patch_size = vision_cfg.get("patch_size")
+                proc.patch_size = patch_size or 14
+                log.info(f"Patched processor.patch_size = {proc.patch_size}")
+            if getattr(proc, "vision_feature_select_strategy", None) is None:
+                proc.vision_feature_select_strategy = "default"
+
     def _mlx_complete(self, prompt: str, system: Optional[str] = None) -> str:
         from mlx_lm import generate
         self._mlx_load_text()
@@ -271,9 +299,9 @@ class AIBackend:
             result = generate(
                 self._mlx_vlm_model,
                 self._mlx_vlm_processor,
-                path,
                 formatted,
-                max_tokens=2048,
+                image=path,
+                max_tokens=4096,
                 verbose=False,
             )
             results.append(result)

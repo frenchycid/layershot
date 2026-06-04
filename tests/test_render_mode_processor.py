@@ -209,3 +209,158 @@ class TestRenderModeProcessor:
         images = [Image.new("RGB", (100, 100)) for _ in range(3)]
         results = processor.batch_process(images, "product", "enhanced")
         assert len(results) == 3
+
+
+# ---------------------------------------------------------------------------
+# Bug-1 fix: hue-preserving saturation in enhanced mode
+# ---------------------------------------------------------------------------
+
+class TestEnhancedPreservesBrandColors:
+    """_process_enhanced must not shift the hue of brand colours (e.g. Sephora pink)."""
+
+    def _make_pink_image(self, size=(100, 100)):
+        """Create a solid blush-pink image resembling Sephora gondola colour."""
+        # #F2C4C4 = (242, 196, 196)
+        arr = np.full((*size, 3), [242, 196, 196], dtype=np.uint8)
+        return Image.fromarray(arr, mode="RGB")
+
+    def test_enhanced_keeps_pink_hue(self):
+        """After enhanced processing, mean hue should remain in the pink/red family."""
+        processor = RenderModeProcessor()
+        pink = self._make_pink_image()
+        result = processor.process(pink, "sephora gondola", "enhanced")
+
+        arr = np.array(result.convert("RGB"), dtype=float)
+        mean_r = arr[:, :, 0].mean()
+        mean_b = arr[:, :, 2].mean()
+
+        # Pink: red channel must remain dominant over blue
+        assert mean_r > mean_b, (
+            f"Hue shifted: mean_r={mean_r:.1f} should be > mean_b={mean_b:.1f}"
+        )
+
+    def test_enhanced_does_not_over_warm_pink(self):
+        """Enhanced mode must not push pink R-B difference beyond the original."""
+        processor = RenderModeProcessor()
+        pink = self._make_pink_image()
+
+        orig_arr = np.array(pink, dtype=float)
+        orig_rb_diff = orig_arr[:, :, 0].mean() - orig_arr[:, :, 2].mean()  # ~46
+
+        result = processor.process(pink, "sephora gondola", "enhanced")
+        res_arr = np.array(result.convert("RGB"), dtype=float)
+        res_rb_diff = res_arr[:, :, 0].mean() - res_arr[:, :, 2].mean()
+
+        # Allow at most 30 units of extra warming (was uncapped before fix)
+        assert res_rb_diff <= orig_rb_diff + 30, (
+            f"Too much warming: original R-B={orig_rb_diff:.1f}, result R-B={res_rb_diff:.1f}"
+        )
+
+    def test_hsv_saturation_boost_preserves_hue(self):
+        """_boost_saturation_hsv must not change the hue channel."""
+        from agents.render_mode_processor import _boost_saturation_hsv
+        pink = Image.new("RGB", (50, 50), (242, 196, 196))
+        boosted = _boost_saturation_hsv(pink, 1.5)
+
+        orig_hsv = np.array(pink.convert("HSV"), dtype=float)
+        res_hsv = np.array(boosted.convert("HSV"), dtype=float)
+
+        orig_hue = orig_hsv[:, :, 0].mean()
+        res_hue = res_hsv[:, :, 0].mean()
+
+        assert abs(orig_hue - res_hue) < 3, (
+            f"Hue shifted by {abs(orig_hue - res_hue):.1f} — should be < 3"
+        )
+
+
+# ---------------------------------------------------------------------------
+# Bug-2 fix: human body detection via u2net_human_seg + background-colour erase
+# ---------------------------------------------------------------------------
+
+class TestHumanDetection:
+    """_detect_humans and _erase_human_regions should handle human presence correctly."""
+
+    def test_detect_humans_returns_false_when_human_seg_unavailable(self):
+        """When u2net_human_seg is unavailable, detect_humans returns (False, empty)."""
+        from unittest.mock import patch
+        img = Image.new("RGB", (100, 100), (200, 150, 120))
+        with patch("agents.render_mode_processor._get_human_seg_session",
+                   return_value="unavailable"):
+            has_humans, alpha = RenderModeProcessor._detect_humans(img)
+        assert has_humans is False
+        assert alpha.shape == (100, 100)
+        assert alpha.max() == 0
+
+    def test_detect_humans_uses_human_seg_alpha(self):
+        """detect_humans should return True when human-seg alpha covers > threshold."""
+        from unittest.mock import patch, MagicMock
+        # Build a fake human-seg result: 50% alpha coverage
+        fake_rgba = np.zeros((100, 100, 4), dtype=np.uint8)
+        fake_rgba[:50, :, 3] = 255  # top half opaque = human
+        fake_result = Image.fromarray(fake_rgba, mode="RGBA")
+
+        img = Image.new("RGB", (100, 100), (200, 150, 120))
+
+        mock_session = MagicMock()
+        with patch("agents.render_mode_processor._get_human_seg_session",
+                   return_value=mock_session), \
+             patch("rembg.remove", return_value=fake_result):
+            has_humans, alpha = RenderModeProcessor._detect_humans(img, threshold=0.12)
+
+        assert has_humans is True  # 50 % > 12 %
+
+    def test_detect_humans_returns_false_below_threshold(self):
+        """detect_humans returns False when human coverage is below threshold."""
+        from unittest.mock import patch, MagicMock
+        # Only 5% alpha coverage
+        fake_rgba = np.zeros((100, 100, 4), dtype=np.uint8)
+        fake_rgba[:5, :, 3] = 255
+        fake_result = Image.fromarray(fake_rgba, mode="RGBA")
+
+        img = Image.new("RGB", (100, 100), (100, 100, 100))
+        mock_session = MagicMock()
+        with patch("agents.render_mode_processor._get_human_seg_session",
+                   return_value=mock_session), \
+             patch("rembg.remove", return_value=fake_result):
+            has_humans, _ = RenderModeProcessor._detect_humans(img, threshold=0.12)
+
+        assert has_humans is False
+
+    def test_erase_human_regions_replaces_masked_pixels(self):
+        """Pixels under human_alpha mask should be replaced with background colour."""
+        # Image: red corners (background), blue centre (subject)
+        # Using red bg so we can distinguish corner-sampled bg from the original blue
+        arr = np.zeros((100, 100, 3), dtype=np.uint8)
+        arr[:, :, 0] = 200          # red background everywhere
+        arr[20:80, 20:80] = [0, 0, 200]   # override centre with pure blue subject
+
+        img = Image.fromarray(arr, mode="RGB")
+
+        # Human mask covers the blue subject area
+        human_alpha = np.zeros((100, 100), dtype=np.uint8)
+        human_alpha[20:80, 20:80] = 255
+
+        result = RenderModeProcessor._erase_human_regions(img, human_alpha)
+        res_arr = np.array(result, dtype=float)
+
+        # After erase, subject area should be close to red background (sampled from corners)
+        subject = res_arr[20:80, 20:80]
+        assert subject[:, :, 0].mean() > 150  # R: was 0, now ~200 (red bg)
+        assert subject[:, :, 2].mean() < 100  # B: was 200 (blue), now ~0 (red bg has no blue)
+
+    def test_erase_human_regions_preserves_unmasked_pixels(self):
+        """Pixels outside the human mask should remain unchanged."""
+        arr = np.full((100, 100, 3), 200, dtype=np.uint8)
+        arr[40:60, 40:60] = [50, 100, 200]
+        img = Image.fromarray(arr, mode="RGB")
+
+        # Mask only covers a small corner, not the coloured area
+        human_alpha = np.zeros((100, 100), dtype=np.uint8)
+        human_alpha[0:5, 0:5] = 255
+
+        result = RenderModeProcessor._erase_human_regions(img, human_alpha)
+        res_arr = np.array(result, dtype=float)
+
+        # The blue region should be unchanged
+        region = res_arr[40:60, 40:60]
+        assert abs(region[:, :, 2].mean() - 200) < 15  # blue channel intact
