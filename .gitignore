@@ -1,10 +1,23 @@
 .venv/
-data/outputs/*.png
-data/moodboards/*.png
-data/moodboards/*.jpg
+venv/
 __pycache__/
 *.pyc
 .pytest_cache/
+*.egg-info/
+
+# Generated outputs
+data/outputs/
+data/prompts/*.json
+!data/prompts/.gitkeep
+
+# macOS artifacts
+.DS_Store
+*.xcodeproj/
+*.xcworkspace/
 LayerShotApp/.build/
-LayerShotApp/*.xcodeproj/
-LayerShotApp/*.xcworkspace/
+LayerShotApp/build/
+.swiftpm/
+
+# Test artifacts
+resultat/
+*.log

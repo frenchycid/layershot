@@ -5,3 +5,12 @@ numpy>=1.24.0
 rembg>=2.0.70
 mlx-lm>=0.1.0
 mlx-vlm>=0.1.0
+
+# Optional backends (one of these enables image generation)
+torch>=2.0.0; sys_platform != 'darwin'
+torchvision>=0.15.0; sys_platform != 'darwin'
+diffusers>=0.25.0
+accelerate>=0.24.0
+
+# macOS-specific optimizations
+torch-mps>=0.1.0; sys_platform == 'darwin'
