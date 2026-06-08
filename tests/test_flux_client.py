@@ -1,10 +1,19 @@
 import json
+import pytest
 from unittest.mock import patch, MagicMock
 from pathlib import Path
 from core.flux_client import FluxClient
 from PIL import Image
 
+# Check if torch is available
+try:
+    import torch
+    HAS_TORCH = True
+except ImportError:
+    HAS_TORCH = False
 
+
+@pytest.mark.skipif(not HAS_TORCH, reason="torch not installed (optional dependency)")
 def test_health_check_ok():
     client = FluxClient()
     health = client.health()
@@ -19,6 +28,7 @@ def test_health_check_down():
         assert health["status"] == "unreachable"
 
 
+@pytest.mark.skipif(not HAS_TORCH, reason="torch not installed (optional dependency)")
 def test_generate_returns_path(tmp_path):
     # Create a minimal test image
     test_img = Image.new("RGB", (100, 100), color="red")
