@@ -6,6 +6,13 @@ from PIL import Image
 from unittest.mock import Mock, patch
 from agents.render_mode_processor import RenderModeProcessor
 
+# Check if rembg is available
+try:
+    import rembg
+    HAS_REMBG = True
+except ImportError:
+    HAS_REMBG = False
+
 
 class TestRenderModeProcessor:
     def test_init(self):
@@ -291,6 +298,7 @@ class TestHumanDetection:
         assert alpha.shape == (100, 100)
         assert alpha.max() == 0
 
+    @pytest.mark.skipif(not HAS_REMBG, reason="rembg not installed (optional dependency)")
     def test_detect_humans_uses_human_seg_alpha(self):
         """detect_humans should return True when human-seg alpha covers > threshold."""
         from unittest.mock import patch, MagicMock
@@ -309,6 +317,7 @@ class TestHumanDetection:
 
         assert has_humans is True  # 50 % > 12 %
 
+    @pytest.mark.skipif(not HAS_REMBG, reason="rembg not installed (optional dependency)")
     def test_detect_humans_returns_false_below_threshold(self):
         """detect_humans returns False when human coverage is below threshold."""
         from unittest.mock import patch, MagicMock
