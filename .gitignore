@@ -18,6 +18,15 @@ LayerShotApp/.build/
 LayerShotApp/build/
 .swiftpm/
 
+# Node/Electron build artifacts
+node_modules/
+dist/
+dist-electron/
+LayerShotUI/dist/
+LayerShotUI/dist-electron/
+LayerShotUI/node_modules/
+*.tsbuildinfo
+
 # Test artifacts
 resultat/
 *.log
